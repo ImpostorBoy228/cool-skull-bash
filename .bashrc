@@ -1,3 +1,4 @@
+export PATH="/usr/bin:$PATH"
 #
 # ~/.bashrc
 #
@@ -57,8 +58,11 @@ fi
 
 # pyenv
 export PYENV_ROOT="$HOME/.pyenv"
-command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
+export PATH="$PYENV_ROOT/bin:$PATH"
+
+if command -v pyenv >/dev/null; then
+    eval "$(pyenv init --path)"
+fi
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
@@ -73,8 +77,3 @@ export CUDA_HOME="/opt/cuda"
 
 
 export PATH=$PATH:$(go env GOPATH)/bin
-
-
-# Added by LM Studio CLI (lms)
-export PATH="$PATH:/home/impostorboy/.lmstudio/bin"
-# End of LM Studio CLI section
