@@ -9,7 +9,7 @@ export PATH="/usr/bin:$PATH"
 alias ff='fastfetch'
 alias nf='neofetch'
 alias sudo='sudo-rs'
-# === UU Coreutils ===
+# uu Coreutils
 alias ls='uu-ls --color=auto -a'
 alias cat='uu-cat'
 alias cp='uu-cp'
@@ -21,14 +21,71 @@ alias touch='uu-touch'
 alias ln='uu-ln'
 alias chmod='uu-chmod'
 alias chown='uu-chown'
-alias grep='grep --color=auto'  # grep не из uutils, оставляем стандартный
+alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
-# Цвета для bash
+alias nv='nvim'
+alias crr='cargo run --release'
+alias cbr='cargo build --release'
+alias sss='systemctl suspend ; exit'
+alias letscook='echo performance | sudo tee /sys/firmware/acpi/platform_profile'
+alias nuts='echo quiet | sudo tee /sys/firmware/acpi/platform_profile'
+
+# PTYHON
+alias pyton='python'
+alias pyhtin='python'
+alias pyhtoin='python'
+alias pyhion='python'
+# пропущена буква
+alias pyhon='python'
+alias pythn='python'
+alias pytho='python'
+alias ython='python'
+alias pthon='python'
+# перестановки
+alias pyhton='python'
+alias pytohn='python'
+alias pyothn='python'
+alias pythno='python'
+alias phyton='python'
+alias pyhnot='python'
+alias pyhont='python'
+# лишняя буква
+alias pythonn='python'
+alias pyython='python'
+alias ppython='python'
+alias pytton='python'
+alias pythhon='python'
+alias pythoon='python'
+alias pythons='python'
+alias pythone='python'
+# соседние клавиши
+alias pithon='python'
+alias puthon='python'
+alias pytjon='python'
+alias pytgon='python'
+alias pytnon='python'
+alias pytmon='python'
+alias pythin='python'
+alias pythom='python'
+alias pythob='python'
+alias pythpn='python'
+# совсем жизненные опечатки
+alias pytoin='python'
+alias pyhoin='python'
+alias pytohin='python'
+alias pyhiton='python'
+alias pyhtno='python'
+alias pyhnto='python'
+
+alias vim='nvim'
+take() {
+    mkdir -p "$1" && cd "$1"
+}
+# colors
 if [ -x /usr/bin/uu-dircolors ]; then
     test -r ~/.dircolors && eval "$(uu-dircolors -b ~/.dircolors)" || eval "$(uu-dircolors -b)"
 fi
-# === 💀 DEMON .bashrc ===
 
 # цвета
 RED="\[\e[31m\]"
@@ -56,24 +113,8 @@ if [ -f /etc/bash_completion ]; then
   . /etc/bash_completion
 fi
 
-# pyenv
-export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
-
-if command -v pyenv >/dev/null; then
-    eval "$(pyenv init --path)"
-fi
-
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
-. "$HOME/.cargo/env"
-export PATH="$HOME/.local/bin:$PATH"
-
-export PATH="/opt/cuda/bin:$PATH"
-export LD_LIBRARY_PATH="/opt/cuda/lib64:$LD_LIBRARY_PATH"
-export CUDA_HOME="/opt/cuda"
-
-
-export PATH=$PATH:$(go env GOPATH)/bin
+# opencode
+export PATH=/home/impostorboy/.opencode/bin:$PATH
+export PATH=$HOME/.local/bin:$PATH
+export QT_QPA_PLATFORM=xcb # fix VirtualBox keyboard on Sway/Wayland
+export PATH="$HOME/.cargo/bin:$PATH"
